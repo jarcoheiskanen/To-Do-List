@@ -14,6 +14,7 @@ const Page = () => {
         const inputTitle = document.getElementById("inputTitle");
         const inputDesc = document.getElementById("inputDesc");
 
+        const itemHolder = document.createElement("div")
         const listedItem = document.createElement("div");
         const listedTitle = document.createElement("textarea");
         const listedDesc = document.createElement("textarea");
@@ -23,16 +24,22 @@ const Page = () => {
         listedDesc.placeholder = inputDesc.value;
         listedCheck.type = "checkbox";
 
-        listedTitle.className = "inputBox listedInfo";
-        listedDesc.className = "inputBox listedInfo";
+        listedTitle.className = "listedBox listedInfo";
+        listedDesc.className = "listedBox listedInfo";
         listedCheck.className = "listedCheck";
-        listedItem.className = "listedItem";
+        listedItem.className = "listedBoxHolder";
+        itemHolder.className = "listHolderHolder"
+
+        listedTitle.style = "font-size: 2vw !important; font-weight: bold;";
+        listedTitle.rows = "1";
+        listedDesc.rows = "1";
 
         listedItem.appendChild(listedTitle);
         listedItem.appendChild(listedDesc);
-        listedItem.appendChild(listedCheck);
+        itemHolder.appendChild(listedCheck);
+        itemHolder.appendChild(listedItem);
 
-        document.getElementById("list").appendChild(listedItem);
+        document.getElementById("list").appendChild(itemHolder);
 
         listedCheck.onclick = function() {
             const isChecked = listedCheck.checked
@@ -53,8 +60,8 @@ const Page = () => {
 
                 <form id="handling" onSubmit={addItem}>
                     <label className="titleText">Add tasks:</label>
-                    <textarea  id="inputTitle" className="inputBox" placeholder="Type task here"></textarea>
-                    <textarea id="inputDesc" className="inputBox" placeholder="Type task description here"></textarea>
+                    <textarea  id="inputTitle" maxlength="20" className="inputBox" placeholder="Type task here"></textarea>
+                    <textarea id="inputDesc" maxlength="100" className="inputBox" placeholder="Type task description here"></textarea>
                     <button className="submitButton">Add task</button>
                 </form>
 
