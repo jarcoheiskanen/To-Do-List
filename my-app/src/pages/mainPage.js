@@ -20,37 +20,56 @@ const Page = () => {
         const listedDesc = document.createElement("textarea");
         const listedCheck = document.createElement("input");
 
-        listedTitle.placeholder = inputTitle.value;
+        const checkButton = document.createElement("button");
+        const removeButton = document.createElement("button");
+
+        let isDone = false;
+
+        listedTitle.maxLength = "20";
+        listedDesc.maxLength = "50";
+
+        listedTitle.placeholder = inputTitle.value.replace(" ", "");
         listedDesc.placeholder = inputDesc.value;
-        listedCheck.type = "checkbox";
 
         listedTitle.className = "listedBox listedInfo";
         listedDesc.className = "listedBox listedInfo";
-        listedCheck.className = "listedCheck";
         listedItem.className = "listedBoxHolder";
-        itemHolder.className = "listHolderHolder"
+        itemHolder.className = "listHolderHolder";
+        checkButton.className = "checkButton";
+        removeButton.className = "removeButton";
 
-        listedTitle.style = "font-size: 2vw !important; font-weight: bold;";
+        checkButton.innerHTML = "MARK AS DONE";
+        removeButton.innerHTML = "REMOVE";
+
+        listedTitle.style = "font-size: 2em !important; font-weight: bold;";
         listedTitle.rows = "1";
         listedDesc.rows = "1";
 
         listedItem.appendChild(listedTitle);
         listedItem.appendChild(listedDesc);
-        itemHolder.appendChild(listedCheck);
+        listedItem.appendChild(checkButton);
+        listedItem.appendChild(removeButton);
         itemHolder.appendChild(listedItem);
 
         document.getElementById("list").appendChild(itemHolder);
 
-        listedCheck.onclick = function() {
-            const isChecked = listedCheck.checked
-            console.log(isChecked)
-            listedTitle.style.textDecoration = (isChecked && "line-through") || "none";
-            listedDesc.style.textDecoration = (isChecked && "line-through") || "none";
-            listedTitle.style.color = (isChecked && "rgb(255, 55, 55)") || "rgb(0, 0, 0)"
-            listedDesc.style.color = (isChecked && "rgb(255, 55, 55)") || "rgb(0, 0, 0)"
+        // -- // Functions
+
+        checkButton.onclick = function() {
+            isDone = !isDone
+            console.log(isDone)
+            listedTitle.style.textDecoration = (isDone && "line-through") || "none";
+            listedDesc.style.textDecoration = (isDone && "line-through") || "none";
+            listedTitle.style.color = (isDone && "rgb(255, 55, 55)") || "rgb(0, 0, 0)"
+            listedDesc.style.color = (isDone && "rgb(255, 55, 55)") || "rgb(0, 0, 0)"
+            checkButton.innerHTML = (isDone && "UNMARK") || "MARK AS DONE"
         };
 
-        element.preventDefault()
+        removeButton.onclick = function() {
+            itemHolder.remove();
+        };
+
+        element.preventDefault();
 
     }
 
@@ -60,8 +79,8 @@ const Page = () => {
 
                 <form id="handling" onSubmit={addItem}>
                     <label className="titleText">Add tasks:</label>
-                    <textarea  id="inputTitle" maxlength="20" className="inputBox" placeholder="Type task here"></textarea>
-                    <textarea id="inputDesc" maxlength="100" className="inputBox" placeholder="Type task description here"></textarea>
+                    <textarea id="inputTitle" maxlength="20" className="inputBox" placeholder="Type task here" required></textarea>
+                    <textarea id="inputDesc" maxlength="100" className="inputBox" placeholder="Type task description here" required></textarea>
                     <button className="submitButton">Add task</button>
                 </form>
 

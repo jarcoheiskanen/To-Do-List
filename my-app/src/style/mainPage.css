@@ -43,11 +43,14 @@ body {
 .listHolderHolder {
     height: auto;
     display: block;
+    transition: all 1s ease-in-out;
 }
 
 .listedBoxHolder {
-    width: 72.5%;
+    width: 90%;
     height: auto;
+    left: 10%;
+    position: relative;
     display: inline-block;
     border-radius: 1vh;
     padding: .5%;
@@ -62,12 +65,35 @@ body {
     word-wrap: break-word;
     word-break: break-all;
     display: inline-block;
-    border-radius: .25em;
+    border-radius: 1vh;
     text-align: left;
-    resize: none;
+    font-size: 1em;
     border: solid rgba(0,0,0,0) 0em !important;
     background-color: rgba(0,0,0,0) !important;
-    font-size: 1vw;
+}
+
+.checkButton {
+    display: inline-block;
+    position: relative;
+    height: 100%;
+    background-color: rgba(55,255,55,.1);
+    margin-right: 2.5%;
+    width: 45%;
+    padding: .5%;
+    border-radius: 1vh;
+    border: solid rgba(0,0,0,.9) .2vh;
+}
+
+.removeButton {
+    display: inline-block;
+    position: relative;
+    height: 100%;
+    background-color: rgba(255,55,55,.1);
+    margin-left: 2.5%;
+    width: 45%;
+    padding: .5%;
+    border-radius: 1vh;
+    border: solid rgba(0,0,0,.9) .2vh;
 }
 
 .listedBox:focus {
@@ -113,5 +139,8 @@ body {
     border: solid rgba(0,0,0,.9) .25vw;
     width: 90vw;
     height: 70vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
