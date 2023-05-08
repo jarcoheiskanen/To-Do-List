@@ -79,8 +79,8 @@ const Page = () => {
 
                 <form id="handling" onSubmit={addItem}>
                     <label className="titleText">Add tasks:</label>
-                    <textarea id="inputTitle" maxlength="20" className="inputBox" placeholder="Type task here" required></textarea>
-                    <textarea id="inputDesc" maxlength="100" className="inputBox" placeholder="Type task description here" required></textarea>
+                    <textarea id="inputTitle" maxLength="20" className="inputBox" placeholder="Type task here" required></textarea>
+                    <textarea id="inputDesc" maxLength="100" className="inputBox" placeholder="Type task description here" required></textarea>
                     <button className="submitButton">Add task</button>
                 </form>
 
