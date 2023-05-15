@@ -1,8 +1,19 @@
-# Varausj-rjestelm-
-Varausjärjestelmä
+# To-Do lista
 
 --------------------------------------------------------------------------------------------
 
-### Rautalankamalli
+### Idea
 
-https://www.figma.com/file/J9am1e1u81a49fxMYxQLRD/Varausj%C3%A4rjestelm%C3%A4_Rautalankamalli?node-id=0-1&t=OskCJSDMFTeYRPsR-0
+Ideana oli tehdä to-do lista sivu, jossa pysty tehdä seuraavat toiminnot:
+
+- Tehdä uusia tehtäviä.
+- Merkata tehtävät tehdyksi.
+- Muokata tehtäviä.
+- Poistaa tehtäviä.
+
+--------------------------------------------------------------------------------------------
+
+### Lähteet
+
+- <b>stackoverflow.com</b> <i>(käytin reactin joidenkin funktioiden käyttöohjeisiin)</i>
+- <b>w3schools.com</b> <i>(käytin css ja html tekemiseen)</i>
